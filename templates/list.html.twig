@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Posts List</h1>
+
+    <ul>
+    {% if posts is defined %}
+        {% for post in posts %}
+            <li>
+                <strong>ID:</strong> {{ post.id }}<br>
+                <strong>User:</strong> {{ post.username }}<br>
+                <strong>Title:</strong> {{ post.title }}<br>
+                <strong>Body:</strong> {{ post.body }}
+                <button class="delete-post" data-post-id="{{ post.id }}">Usuń</button>
+            </li>
+            <br>
+        {% endfor %}
+    {% else %}
+        <li>No posts found</li>
+    {% endif %}
+    </ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.delete-post');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const postId = this.getAttribute('data-post-id');
+                    deletePost(postId);
+                });
+            });
+
+            function deletePost(postId) {
+                fetch(`/post/${postId}`, {
+                    method: 'DELETE',
+                })
+                .then(response => {
+                        location.reload();
+                })
+                .catch(error => {
+                    console.error('Wystąpił błąd podczas wysyłania żądania DELETE:', error);
+                });
+            }
+        });
+    </script>
+{% endblock %}
