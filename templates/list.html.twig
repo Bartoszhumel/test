@@ -1,17 +1,16 @@
 {% extends "base.html.twig" %}
-
 {% block body %}
     <h1>Posts List</h1>
 
-    <ul>
-    {% if posts is defined %}
-        {% for post in posts %}
-            <li>
-                <strong>ID:</strong> {{ post.id }}<br>
-                <strong>User:</strong> {{ post.username }}<br>
-                <strong>Title:</strong> {{ post.title }}<br>
-                <strong>Body:</strong> {{ post.body }}
-                <button class="delete-post" data-post-id="{{ post.id }}">Usuń</button>
+    <ul style="list-style-type: none; padding: 0;">
+        {% if posts is defined %}
+            {% for post in posts %}
+                <li style="border: 2px solid #ccc; padding: 10px;">
+                <strong style="color: rgb(0, 149, 255);">ID:</strong> {{ post.id }}<br>
+                <strong style="color: rgb(0, 149, 255);">User:</strong> {{ post.username }}<br>
+                <strong style="color: rgb(0, 149, 255);">Title:</strong> {{ post.title }}<br>
+                <strong style="color: rgb(0, 149, 255);">Body:</strong> {{ post.body }}<br>
+                <button class="delete-post" style="border-radius: 5px;"data-post-id="{{ post.id }}">Usuń</button>
             </li>
             <br>
         {% endfor %}
@@ -26,6 +25,7 @@
             deleteButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const postId = this.getAttribute('data-post-id');
+                    console.log(postId);
                     deletePost(postId);
                 });
             });
