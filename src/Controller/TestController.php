@@ -14,7 +14,7 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 
 class TestController extends AbstractController
 {
-    #[Route('/test', name: 'app_test')]
+    #[Route('/', name: 'app_test')]
     public function index(): JsonResponse
     {
         return $this->json([
@@ -49,7 +49,7 @@ class TestController extends AbstractController
         // Zwróć dane postów jako odpowiedź JSON
         return new JsonResponse($postData);
     }
-    #[Route('/list', name: 'list_posts')]
+    #[Route('/lista', name: 'list_posts')]
     public function listPosts(): Response
     {
         $posts = $this->entityManager->getRepository(Post::class)->findAll();
