@@ -26,6 +26,8 @@ Commands to run :
 
   symfony server:start
 
+You need to change database credentials in .env file.
+
 To download posts run : php bin/console app:import-posts
 
   /lista - to list imported posts
