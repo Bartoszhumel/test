@@ -7,6 +7,7 @@ To run require:
   Mysql - https://www.mysql.com/
 
   Node - https://nodejs.org/en
+  PHP - https://www.php.net/
 
 Commands to run :
 
