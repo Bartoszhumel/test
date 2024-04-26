@@ -22,9 +22,9 @@ Commands to run :
 
   symfony server:start
 
-To donwload posts run : php bin/console app:import-posts
+To download posts run : php bin/console app:import-posts
 
-  /list - to list imported posts
+  /lista - to list imported posts
 
   /login - to login
 
